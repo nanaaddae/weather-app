@@ -1,25 +1,22 @@
 import logo from './logo.svg';
+import ZipCodeForm from './components/ZipCodeForm';
+import WeatherDisplay from './components/WeatherDisplay';
 import './App.css';
 
-function App() {
+
+const App = () => {
+  const handleFormSubmit = (weatherData) => {
+    // Handle the received weather data (e.g., update state)
+    console.log(weatherData);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Weather App</h1>
+      <ZipCodeForm onFormSubmit={handleFormSubmit} />
+      <WeatherDisplay />
     </div>
   );
-}
+};
 
 export default App;
