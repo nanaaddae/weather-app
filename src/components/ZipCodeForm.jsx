@@ -12,7 +12,7 @@ const ZipCodeForm = ({ onFormSubmit }) => {
         onFormSubmit(data);
       } catch (error) {
         console.error('Error fetching weather data:', error);
-        // Handle the error appropriately (e.g., display an error message to the user)
+        // Handle the error appropriately
       }
     }
   };
