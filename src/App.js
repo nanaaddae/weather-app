@@ -5,16 +5,23 @@ import './App.css';
 
 
 const App = () => {
-  const handleFormSubmit = (weatherData) => {
-    // Handle the received weather data (e.g., update state)
-    console.log(weatherData);
+  const [weatherData, setWeatherData] = useState(null);
+
+  const handleFormSubmit = (data) => {
+    
+    //console.log(weatherData);
+    setWeatherData(data);
+
+    console.log('Weather data received:', data);
+
+
   };
 
   return (
     <div>
       <h1>Weather App</h1>
       <ZipCodeForm onFormSubmit={handleFormSubmit} />
-      <WeatherDisplay />
+      <WeatherDisplay weatherData={weatherData}/>
     </div>
   );
 };
