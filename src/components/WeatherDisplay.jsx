@@ -1,36 +1,16 @@
-import React, { useEffect, useState } from 'react';
 
-const WeatherDisplay = ({ zipCode }) => {
-  const [weatherData, setWeatherData] = useState(null);
+import React from 'react';
 
-  useEffect(() => {
-    const fetchWeatherData = async () => {
-      try {
-        const response = await fetch(`YOUR_API_ENDPOINT/${zipCode}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch weather data');
-        }
-        const data = await response.json();
-        setWeatherData(data);
-      } catch (error) {
-        console.error('Error fetching weather data:', error);
-        // Handle the error appropriately 
-      }
-    };
-
-    if (zipCode) {
-      fetchWeatherData();
-    }
-  }, [zipCode]);
-
+const WeatherDisplay = ({ weatherData }) => {
+  
   return (
     <div>
-      <h2>Current Weather</h2> 
+      <h2>Current Weather</h2>
       {weatherData ? (
         <div>
-          <p>Temperature: {weatherData.temperature}°C</p>
-          <p>Conditions: {weatherData.conditions}</p>
-          {/* Will add more potentially */}
+        <p>City Name: {weatherData.name}</p>
+        <p>Temperature: {Math.round((weatherData.main.temp - 273.15) * 9/5 + 32)}°F</p>
+        <p>Conditions: {weatherData.weather[0].description}</p>
         </div>
       ) : (
         <p>No weather data available</p>
