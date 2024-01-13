@@ -1,0 +1,16 @@
+version: '3'
+services:
+  spring-app:
+    image: spring-app-image  
+    build:
+      context: ./demo
+    ports:
+      - "8080:8080"
+
+  react-app:
+    image: react-app-image 
+    build:
+      context: ./weather-app
+    ports:
+      - "3000:3000"
+      
