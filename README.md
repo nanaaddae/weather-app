@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Weather Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The Weather Application is a full-stack web application that allows users to check the current weather by entering a zip code. The application consists of a Spring Boot backend for fetching weather data and a React frontend for user interaction.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Zip Code Form:** Users can enter a zip code to get real-time weather information.
+- **Current Weather Display:** Displays the current temperature, city name, and weather conditions.
+- **Error Handling:** Provides user-friendly error messages for invalid zip codes or failed weather data fetch.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Backend:**
+  - Spring Boot
+  - Java
+  - RestTemplate
 
-### `npm test`
+- **Frontend:**
+  - React
+  - Bootstrap for styling
+  - Fetch API for data retrieval
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Containerization:**
+  - Docker
+  - Docker Compose
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Java](https://www.java.com/) installed
+- [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed
+- [Docker](https://www.docker.com/) installed (for containerization)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend (Spring Boot)
 
-### `npm run eject`
+1. Navigate to the `demo` directory.
+2. Build the Spring Boot application: `./mvnw clean package`
+3. Run the application: `java -jar target/demo-0.0.1-SNAPSHOT.jar`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend (React)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Navigate to the `weather-app` directory.
+2. Install dependencies: `npm install`
+3. Start the development server: `npm start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Docker (Optional)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Build and run the Docker containers: `docker-compose up --build`
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Access the application at [http://localhost:3000](http://localhost:3000).
+2. Enter a valid zip code in the form and click "Get The Weather!"
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Configuration
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Backend configuration is located in `demo/src/main/resources/application.properties`.
+- Frontend configuration can be adjusted in `weather-app/package.json` and other relevant files.
