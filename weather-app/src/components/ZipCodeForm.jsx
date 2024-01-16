@@ -5,8 +5,8 @@ const ZipCodeForm = ({ onFormSubmit }) => {
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (zipCode.trim() !== '') {
+    e.preventDefault();// prevents [age refresh
+    if (zipCode.trim() !== '') //ignores any empty space{
       try {
         const response = await fetch(`http://localhost:8080/weather/${zipCode}`);// call to the Spring Boot backend
         if (!response.ok) {
@@ -18,6 +18,8 @@ const ZipCodeForm = ({ onFormSubmit }) => {
       } catch (error) {
         console.error('Error fetching weather data:', error);
         setError('Error fetching weather data. Please try again.'); // Set the error state
+        onFormSubmit({ error: 'Error fetching weather data. Please try again.' });
+
       }
     }
   };
